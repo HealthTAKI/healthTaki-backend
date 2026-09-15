@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: healthtaki
+      POSTGRES_PASSWORD: healthtaki
+      POSTGRES_DB: healthtaki
+    ports:
+      - "5432:5432"
+    volumes:
+      - healthtaki_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  healthtaki_postgres_data:
